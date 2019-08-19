@@ -1,0 +1,104 @@
+<section class="section section-lg section-shaped pb-250">
+  <div class="shape shape-style-1 shape-default">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  <div class="container py-lg-md d-flex">
+    <div class="col px-0">
+      <div class="row">
+        <div class="col-12">
+          <div class="jumbtron">
+<h1 class="display-3  text-white">Asignar</h1>
+<hr>
+<div class="row">
+<div class="col-md-5">
+<form >
+<input type="hidden" name="Id" >
+<div class="form-group">
+<label class="text-white">Usuario</label>
+<div class="input-group">
+  <div class="input-group-prepend">
+    <div class="input-group-text bg-white">
+      <i class="fas fa-user-circle"></i>
+    </div>
+  </div>
+  <select name="UserName" #UserName="ngModel" [(ngModel)]="service.formData.UserName" class="form-control">
+    <option value="0">-Select-</option>
+    <option *ngFor="let u of service.list" >{{u.userName}}</option>
+  </select>
+</div>
+</div>
+<div class="form-group">
+<label class="text-white">Hardeware</label>
+<div class="input-group">
+  <div class="input-group-prepend">
+    <div class="input-group-text bg-white">
+      <i class="far fa-credit-card"></i>
+    </div>
+  </div>
+  <select class="form-control">
+    <option  value="0">-Select-</option>
+    <option *ngFor="let h of hardservice.list" >{{h.hardwareName}}</option>
+</select>
+</div>
+</div>
+<div class="form-group">
+<label class="text-white">Software</label>
+<div class="input-group">
+  <div class="input-group-prepend">
+    <div class="input-group-text bg-white">
+      <i class="far fa-credit-card"></i>
+    </div>
+  </div>
+  <select name="CustomerID" class="form-control">
+    <option value="0">-Select-</option>
+    <option *ngFor="let s of softservice.list" >{{s.softwareName}}</option>
+</select>
+</div>
+</div>
+<div class="form-group">
+<button class="btn btn-success btn-lg btn-block" type="submit"><i class="fas fa-database"></i> Submit</button>
+</div>
+</form>
+</div>
+<div class="col-md-12">
+  <table class="table table table-striped table-dark table-hover table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Usuario</th>
+        <th scope="col">Hardware</th>
+        <th scope="col">Software</th>
+      </tr>
+    </thead>
+    <tr *ngFor="let pd of service.list">
+      <th class="text-white" scope="row">{{pd.id}}</th>
+      <td (click)="populateForm(pd)" class="text-white"></td>
+      <td (click)="populateForm(pd)" class="text-white"></td>
+      <td (click)="populateForm(pd)" class="text-white"></td>
+      <td (click)="populateForm(pd)" class="text-white"></td>
+      <td (click)="populateForm(pd)" class="text-white"></td>
+      <td><button class="btn btn-icon btn-2 btn-danger" (click)="onDelete(pd.id)" type="submit"><span class="btn-inner--icon"><i class="ni ni-bag-17"></i></span></button></td>
+    </tr>
+  </table>
+</div>
+</div>
+</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- SVG separator -->
+  <div class="separator separator-bottom separator-skew">
+    <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg">
+      <polygon class="fill-white" points="2560 0 2560 100 0 100"></polygon>
+    </svg>
+  </div>
+</section>

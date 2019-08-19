@@ -1,0 +1,84 @@
+<section class="section section-lg section-shaped pb-250">
+  <div class="shape shape-style-1 bg-gradient-default">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  <div class="container py-lg-md d-flex">
+    <div class="col px-0">
+      <div class="row">
+          <div class="col-12">
+          <div class="jumbtron">
+
+<h1 class="display-3  text-white">Registrar Software</h1>
+<hr>
+<div class="row">
+    <div class="col-md-5">
+        <div class="transform-perspective-left">
+            <div class="card bg-secondary shadow border-0">
+              <div class="card-body px-lg-5 py-lg-5">
+                <div class="text-muted text-center mb-3">
+                    <img  src="./assets/img/brand/users.png" width="80px" height="80px">
+                </div>
+  <form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
+    <input type="hidden" name="Id" [value]="service.formData.Id">
+    <div class="form-group">
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <div class="input-group-text bg-white">
+          <i class="ni ni-circle-08"></i>
+        </div>
+      </div>
+      <input name="SoftwareName" #SoftwareName="ngModel" [(ngModel)]="service.formData.SoftwareName"  class="form-control" placeholder="SoftwareName" required>
+    </div>
+    </div>
+    <div class="form-group">
+    <button class="btn btn-success btn-lg btn-block" type="submit"><i class="fas fa-database"></i> Submit</button>
+    </div>
+    </form>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-7">
+        <div class="card bg-secondary shadow border-0">
+          <div class="card-body px-lg-5 py-lg-5">
+    <table class="table table table-striped table-dark table-hover table-bordered">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Software</th>
+        </tr>
+      </thead>
+      <tr *ngFor="let pd of service.list | paginate: {itemsPerPage: 4, currentPage: pageActual}; index as i" >
+        <th class="text-white" scope="row">{{i+1}}</th>
+        <td (click)="populateForm(pd)" class="text-white">{{pd.softwareName}}</td>
+        <td><button class="btn btn-sm btn-2 btn-danger" (click)="onDelete(pd.id)" type="submit"><i class="ni ni-fat-remove"></i></button></td>
+      </tr>
+    </table>
+    <pagination-controls (pageChange)="pageActual = $event"></pagination-controls>
+  </div>
+</div>
+
+  </div>
+</div>
+</div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- SVG separator -->
+  <div class="separator separator-bottom separator-skew">
+    <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg">
+      <polygon class="fill-white" points="2560 0 2560 100 0 100"></polygon>
+    </svg>
+  </div>
+</section>
