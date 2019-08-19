@@ -21,30 +21,48 @@ export class UsersComponent implements OnInit {
     if(form != null)
     form.resetForm();
     this.service.formData = {
-      Id :0,
-      UserName: '',
-      Name:'',
-      LastName:'',
-      Age:0,
-      LastSessionDateTime: ''
+      id :0,
+      userName: '',
+      name:'',
+      lastName:'',
+      age:0,
+      lastSessionDateTime: ''
 
     }
   }
 
-  onSubmit(form:NgForm){
-    this.service.postUsers(form.value).subscribe(
-      res => {
-        this.resetForm(form);
-      },
-      err =>{
-        console.log(err);
-      }
-    )
+
+
+  onSubmit(form: NgForm) {
+    if (form.value.id == 0)
+    this.insertRecord(form);
+    else
+      this.updateRecord(form);
   }
 
-  populateForm(pd:Users){
-    this.service.formData = Object.assign({},pd);
+  insertRecord(form: NgForm) {
+    this.service.postusers(form.value).subscribe(res => {
+      //this.toastr.success('Inserted successfully', 'EMP. Register');
+      this.resetForm(form);
+      this.service.refreshList();
+    });
   }
+
+  updateRecord(form: NgForm) {
+    this.service.putusers(form.value).subscribe(res => {
+      this.resetForm(form);
+      this.service.refreshList();
+     });
+  
+    }
+
+ 
+    populateForm(index: Users) {
+      this.service.formData = Object.assign({}, index);
+      console.log(this.service.formData)
+    }   
+ 
+
 
   onDelete(id){
     if(confirm('Esta seguro que quieres eliminar')){

@@ -9,6 +9,8 @@ import { Software } from '../shared/services/software.model';
   styleUrls: ['./software.component.css']
 })
 export class SoftwareComponent implements OnInit {
+  
+  isValid: boolean = true;
 
   constructor( private service: SoftwareService) { }
 
@@ -17,31 +19,54 @@ export class SoftwareComponent implements OnInit {
     this.resetForm();
     this.service.refreshList();
     
+    
   }
+
+  validateForm() {
+    this.isValid = true;
+    if (this.service.formData.id == 0)
+      this.isValid = false;
+    else if (this.service.refreshList.length == 0)
+      this.isValid = false;
+    return this.isValid;
+  }
+
   resetForm(form?: NgForm){
     if(form != null)
     form.resetForm();
     this.service.formData = {
-      Id :null,
-      SoftwareName: '',
+      id :0,
+      softwareName: '',
+
     }
   }
 
-  onSubmit(form:NgForm){
-    this.service.Postsoftware(form.value).subscribe(
-      res => {
-        this.resetForm(form);
-      },
-      err =>{
-        console.log(err);
-      }
-    )
+  onSubmit(form: NgForm) {
+    if (form.value.id == 0)
+    this.insertRecord(form);
+    else
+      this.updateRecord(form);
+  }
+  
+  insertRecord(form: NgForm) {
+    this.service.Postsoftware(form.value).subscribe(res => {
+      //this.toastr.success('Inserted successfully', 'EMP. Register');
+      this.resetForm(form);
+      this.service.refreshList();
+    });
   }
 
-  populateForm(index: Software, i:number) {
-    //this.service.formData = Object.assign({}, index);
+  updateRecord(form: NgForm) {
+    this.service.putsoftware(form.value).subscribe(res => {
+      this.resetForm(form);
+      this.service.refreshList();
+     });
+  }
+
+
+  populateForm(index: Software) {
+    this.service.formData = Object.assign({}, index);
     console.log(this.service.formData)
-    this.service.refreshList=this.service.refreshList[i];
   }
 
 

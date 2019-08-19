@@ -15,7 +15,7 @@
           <div class="row">
             <div class="col-12">
               <div class="jumbtron">
-   <h1 class="display-3  text-white">Registrar Usuario</h1>
+   <h1 class="display-3  text-white">Usuarios</h1>
   <div class="row">
     <div class="col-md-5">
         <div class="transform-perspective-left">
@@ -26,7 +26,7 @@
                             </div>
                         
                             <form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
-                                <input type="hidden" name="Id" [value]="service.formData.Id">
+                              <input type="hidden" name="id" #id="ngModel" [(ngModel)]="service.formData.id" [value]="service.formData.id">
                                 <div class="form-group">
                                   <div class="input-group">
                                     <div class="input-group-prepend">
@@ -34,7 +34,7 @@
                                         <i class="fas fa-user-circle"></i>
                                       </div>
                                     </div>
-                                    <input (focus)="focus=true" (blur)="focus=false" name="UserName" #UserName="ngModel" [(ngModel)]="service.formData.UserName"  class="form-control" placeholder="UserName" required>
+                                    <input (focus)="focus=true" (blur)="focus=false" name="userName" #userName="ngModel" [(ngModel)]="service.formData.userName"  class="form-control" placeholder="Nombre del usuario" required>
                                   </div>
                                 </div>
                                 <div class="form-group">
@@ -44,7 +44,7 @@
                                         <i class="far fa-credit-card"></i>
                                       </div>
                                     </div>
-                                    <input name="Name" #Name="ngModel" [(ngModel)]="service.formData.Name"class="form-control" placeholder="Name" required maxlength="16" minlength="16">
+                                    <input name="name" #name="ngModel" [(ngModel)]="service.formData.name"class="form-control" placeholder="Nombre">
                                   </div>
                                 </div>
                                  <div class="form-group">
@@ -54,7 +54,7 @@
                                         <i class="far fa-credit-card"></i>
                                       </div>
                                     </div>
-                                    <input name="LastName" #LastName="ngModel" [(ngModel)]="service.formData.LastName" class="form-control" placeholder="LastName" required maxlength="16" minlength="16">
+                                    <input name="lastName" #lastName="ngModel" [(ngModel)]="service.formData.lastName" class="form-control" placeholder="Segundo Nombre">
                                   </div>
                                 </div>
                                 <div class="form-row">
@@ -65,7 +65,7 @@
                                           <i class="fas fa-key"></i>
                                         </div>
                                       </div>
-                                      <input name="Age"  #Age="ngModel" [(ngModel)]="service.formData.Age"  class="form-control" placeholder="Age" required  maxlength="3" minlength="3">
+                                      <input name="age"  #age="ngModel" [(ngModel)]="service.formData.age"  class="form-control" placeholder="Edad">
                                     </div>
                                   </div>
                                   <div class="form-group col-md-7">
@@ -75,7 +75,7 @@
                                           <i class="fas fa-calendar-alt" ></i>
                                         </div>
                                       </div>
-                                      <input name="LastSessionDateTime" #LastSessionDateTime="ngModel" [(ngModel)]="service.formData.LastSessionDateTime" class="form-control" placeholder="Date" >
+                                      <input name="lastSessionDateTime" #lastSessionDateTime="ngModel" [(ngModel)]="service.formData.lastSessionDateTime" class="form-control" placeholder="Date" >
                                     </div>
                                   </div>
                                 </div>
@@ -96,6 +96,10 @@
   <br>
   <br>
   <div class="col-md-12">
+      <div class="card bg-secondary shadow border-0">
+          <div class="card-body px-lg-5 py-lg-5">
+              <h3  style="color: blue">Listado Usuario</h3>
+              <hr>
       <table class="table table table-striped table-dark table-hover table-bordered">
         <thead>
           <tr>
@@ -107,17 +111,21 @@
             <th scope="col">Fecha</th>
           </tr>
         </thead>
-        <tr *ngFor="let pd of service.list">
-          <th class="text-white" scope="row">{{pd.id}}</th>
+        <tr *ngFor="let pd of service.list | paginate: {itemsPerPage: 7, currentPage: pageActual}; index as i">
+          <th class="text-white" scope="row">{{i+1}}</th>
           <td (click)="populateForm(pd)" class="text-white">{{pd.userName}}</td>
           <td (click)="populateForm(pd)" class="text-white">{{pd.name}}</td>
           <td (click)="populateForm(pd)" class="text-white">{{pd.lastName}}</td>
           <td (click)="populateForm(pd)" class="text-white">{{pd.age}}</td>
           <td (click)="populateForm(pd)" class="text-white">{{pd.lastSessionDateTime}}</td>
-          <td><button class="btn btn-icon btn-2 btn-danger" (click)="onDelete(pd.id)" type="submit"><span class="btn-inner--icon"><i class="ni ni-bag-17"></i></span></button></td>
+          <td><button class="btn btn-sm btn-2 btn-warning" (click)="populateForm(pd)" type="submit"><i class="ni ni-settings"></i></button></td>
+          <td><button class="btn btn-sm btn-2 btn-danger" (click)="onDelete(pd.id)" type="submit"><i class="ni ni-fat-remove"></i></button></td>
         </tr>
       </table>
+      <pagination-controls (pageChange)="pageActual = $event"></pagination-controls>
     </div>
+</div>
+</div>
 </div>
             </div>
           </div>

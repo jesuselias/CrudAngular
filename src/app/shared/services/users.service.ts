@@ -13,9 +13,14 @@ export class UsersService {
 
   constructor(private http:HttpClient) { }
 
-  postUsers(formData:Users){
+  postusers(formData:Users){
    return this.http.post(this.rootURL+'/users', this.formData);
   }
+
+  putusers(formData : Users){
+    return this.http.put(this.rootURL+'/users/'+ formData.id,formData);
+     
+   }
  
    Deleteusers(id){
      return this.http.delete(this.rootURL+'/users/'+ id);

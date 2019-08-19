@@ -1,5 +1,5 @@
 export class Software {
 
-    Id: number;
-	SoftwareName: string;
+    id: number;
+	softwareName: string;
 }

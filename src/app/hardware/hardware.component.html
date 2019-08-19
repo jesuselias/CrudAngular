@@ -16,7 +16,7 @@
         <div class="col-12">
           <div class="jumbtron">
 
-<h1 class="display-3  text-white">Registrar Hardware</h1>
+<h1 class="display-3  text-white">Hardware</h1>
 <hr>
 <div class="row">
 <div class="col-md-5">
@@ -27,7 +27,8 @@
                 <img  src="./assets/img/brand/users.png" width="80px" height="80px">
             </div>
 <form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
-<input type="hidden" name="Id" [value]="service.formData.Id">
+<input type="hidden" name="id"  #id="ngModel" [(ngModel)]="service.formData.id" [value]="service.formData.id">
+
 <div class="form-group">
 <div class="input-group">
   <div class="input-group-prepend">
@@ -35,7 +36,7 @@
       <i class="fas fa-user-circle"></i>
     </div>
   </div>
-  <input name="HardwareName" #HardwareName="ngModel" [(ngModel)]="service.formData.HardwareName"  class="form-control" placeholder="HardwareName" required>
+  <input name="HardwareName" #HardwareName="ngModel" [(ngModel)]="service.formData.hardwareName"  class="form-control" placeholder="HardwareName" required>
 </div>
 </div>
 <div class="form-group">
@@ -49,6 +50,8 @@
 <div class="col-md-7">
     <div class="card bg-secondary shadow border-0">
         <div class="card-body px-lg-5 py-lg-5">
+            <h3  style="color: blue">Listado Hardware</h3>
+            <hr>
   <table class="table table table-striped table-dark table-hover table-bordered">
     <thead>
       <tr>
@@ -58,8 +61,8 @@
     </thead>
     <tr *ngFor="let pd of service.list | paginate: {itemsPerPage: 4, currentPage: pageActual}; index as i">
       <th class="text-white" scope="row">{{i+1}}</th>
-      <td (click)="AddOrEditOrderItem(null,service.formData.OrderID)" class="text-white">{{pd.hardwareName}}</td>
-      <td><button class="btn btn-sm btn-2 btn-warning" (click)="populateForm(index)" type="submit"><i class="ni ni-fat-remove"></i></button></td>
+      <td (click)="populateForm(pd)" class="text-white">{{pd.hardwareName}}</td>
+      <td><button class="btn btn-sm btn-2 btn-warning" (click)="populateForm(pd)" type="submit"><i class="ni ni-settings"></i></button></td>
       <td><button class="btn btn-sm btn-2 btn-danger" (click)="onDelete(pd.id)" type="submit"><i class="ni ni-fat-remove"></i></button></td>
     </tr>
   </table>

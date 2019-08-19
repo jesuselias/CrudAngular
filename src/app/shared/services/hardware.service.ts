@@ -30,7 +30,7 @@ export class HardwareService {
 
 
   putHardware(formData : Hardware){
-    return this.http.put(this.rootURL+'/hardware/'+formData.id,formData);
+    return this.http.put(this.rootURL+'/hardware/'+ formData.id,formData);
      
    }
 

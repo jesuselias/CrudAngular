@@ -21,18 +21,18 @@ export class ListusersComponent implements OnInit {
     if(form != null)
     form.resetForm();
     this.service.formData = {
-      Id :0,
-      UserName: '',
-      Name:'',
-      LastName:'',
-      Age:0,
-      LastSessionDateTime: ''
+      id :0,
+      userName: '',
+      name:'',
+      lastName:'',
+      age:0,
+      lastSessionDateTime: ''
 
     }
   }
 
   onSubmit(form:NgForm){
-    this.service.postUsers(form.value).subscribe(
+    this.service.postusers(form.value).subscribe(
       res => {
         this.resetForm(form);
       },

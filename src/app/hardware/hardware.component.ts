@@ -23,13 +23,13 @@ export class HardwareComponent implements OnInit {
     form.resetForm();
     this.service.formData = {
       id :0,
-      hardwareName: '',
+      hardwareName: ''
     }
   }
 
   onSubmit(form: NgForm) {
-    if (form.value.EmployeeID == null)
-      this.insertRecord(form);
+    if (form.value.id == 0)
+    this.insertRecord(form);
     else
       this.updateRecord(form);
   }
@@ -43,7 +43,6 @@ export class HardwareComponent implements OnInit {
   }
 
  
-     
       populateForm(index: Hardware) {
         this.service.formData = Object.assign({}, index);
         console.log(this.service.formData)

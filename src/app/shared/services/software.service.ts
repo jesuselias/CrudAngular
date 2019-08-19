@@ -17,6 +17,11 @@ export class SoftwareService {
    return this.http.post(this.rootURL+'/software',formData);
   }
 
+  putsoftware(formData : Software){
+    return this.http.put(this.rootURL+'/software/'+formData.id,formData);
+     
+   }
+
   Deletesoftware(id){
     return this.http.delete(this.rootURL+'/software/'+ id);
    }
