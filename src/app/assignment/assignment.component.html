@@ -94,7 +94,7 @@
       <th class="text-white" scope="row">{{i+1}}</th>
       <td class="text-white">{{p.hardwareName}}</td>
       <td class="text-white">{{p.softwareName}}</td>
-      <td><button class="btn btn-sm btn-2 btn-danger" value="{{p.hardwareID}}" value="{{p.softwareID}}" (click)="onDelete(form,i)" type="submit"><i class="ni ni-fat-remove"></i></button></td>
+      <td><button class="btn btn-sm btn-2 btn-danger" value="{{p.hardwareID}}" value="{{p.softwareID}}" (click)="onDelete(form)" type="submit"><i class="ni ni-fat-remove"></i></button></td>
     </tr>
   </table>
   <pagination-controls (pageChange)="pageActual = $event"></pagination-controls>

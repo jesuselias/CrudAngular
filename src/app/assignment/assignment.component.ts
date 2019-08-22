@@ -41,15 +41,7 @@ export class AssignmentComponent implements OnInit {
     }
   }
 
-  resetFormd(form?: NgForm){
-    if(form != null)
-    form.resetForm();
-    this.assigservice.formData = {
-      UserID: this.assigservice.formData.UserID,
-      SoftwareID: this.assigservice.formData.SoftwareID,
-      HardwareID: this.assigservice.formData.HardwareID,
-    }
-  }
+
 
   insertRecord(form: NgForm) {
     this.assigservice.Postassignments(form.value).subscribe(res => {
@@ -61,17 +53,14 @@ export class AssignmentComponent implements OnInit {
 
   getiduser(form: NgForm){
       this.assigservice.getASigByID(form.value);
-      console.log(this.assigservice.formData);
+    
   }
 
-  onDelete(formd: NgForm,index){
+  onDelete(form: NgForm){
     if(confirm('Esta seguro que quieres eliminar?')){
-    this.assigservice.formData.HardwareID = this.assigservice.list[index].HardwareID;
-    this.assigservice.formData.SoftwareID = this.assigservice.list[index].SoftwareID;
-      this.assigservice.Deleteassignments(formd.value).subscribe(res => {
+      this.assigservice.Deleteassignments(form.value).subscribe(res => {
         //this.toastr.success('Inserted successfully', 'EMP. Register');
-        this.resetForm(formd);
-        console.log(this.assigservice.formData);
+        this.resetForm(form);
         //this.assigservice.refreshList(id);
       console.log();
     });
