@@ -1,6 +1,5 @@
-Sistema de Asignaciones
+Sistema de Asignaciones de hardware y software a los usuarios
 
-de hardware y software a los usuarios
 Este sistema permitira tanto registrar, modificar y eliminar los diversos usuarios, hardware y software; permitiendo asignar los hardware y software que estan registrados a los usuarios así poder observar los listados de usuarios y listado de hardware y software por usuario.
 
 
@@ -151,55 +150,4 @@ argon-design-system-angular
 ```
 
 
-## Browser Support
 
-At present, we officially aim to support the last two versions of the following browsers:
-
-<img src="https://github.com/creativetimofficial/public-assets/blob/master/logos/chrome-logo.png?raw=true" width="64" height="64"> <img src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/logos/firefox-logo.png" width="64" height="64"> <img src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/logos/edge-logo.png" width="64" height="64"> <img src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/logos/safari-logo.png" width="64" height="64"> <img src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/logos/opera-logo.png" width="64" height="64">
-
-
-
-## Resources
-- Demo: <https://demos.creative-tim.com/argon-design-system-angular/home?ref=adsa-github-readme>
-- Download Page: <https://www.creative-tim.com/product/argon-design-system-angular?ref=adsa-github-readme>
-- Documentation: <https://demos.creative-tim.com/argon-design-system-angular/documentation/tutorial?ref=adsa-github-readme>
-- License Agreement: <https://www.creative-tim.com/license?ref=adsa-github-readme>
-- Support: <https://www.creative-tim.com/contact-us?ref=adsa-github-readme>
-- Issues: [Github Issues Page](https://github.com/creativetimofficial/argon-design-system-angular/issues?ref=adsa-github-readme)
-
-## Reporting Issues
-
-We use GitHub Issues as the official bug tracker for the Argon Design System Angular. Here are some advices for our users that want to report an issue:
-
-1. Make sure that you are using the latest version of the Argon Design System Angular. Check the CHANGELOG from your kit on our [website](https://www.creative-tim.com/?ref=ada-github-readme).
-2. Providing us reproducible steps for the issue will shorten the time it takes for it to be fixed.
-3. Some issues may be browser specific, so specifying in what browser you encountered the issue might help.
-
-## Licensing
-
-- Copyright 2019 Creative Tim (https://www.creative-tim.com/?ref=adsa-github-readme)
-
-- Licensed under MIT (https://github.com/creativetimofficial/argon-design-system-angular/blob/master/LICENSE.md)
-
-## Useful Links
-
-- [Tutorials](https://www.youtube.com/channel/UCVyTG4sCw-rOvB9oHkzZD1w?ref=creativetim)
-- [Affiliate Program](https://www.creative-tim.com/affiliates/new?ref=adsa-github-readme) (earn money)
-- [Blog Creative Tim](http://blog.creative-tim.com/?ref=adsa-github-readme)
-- [Free Products](https://www.creative-tim.com/bootstrap-themes/free?ref=adsa-github-readme) from Creative Tim
-- [Premium Products](https://www.creative-tim.com/bootstrap-themes/premium?ref=adsa-github-readme) from Creative Tim
-- [React Products](https://www.creative-tim.com/bootstrap-themes/react-themes?ref=adsa-github-readme) from Creative Tim
-- [Angular Products](https://www.creative-tim.com/bootstrap-themes/angular-themes?ref=adsa-github-readme) from Creative Tim
-- [VueJS Products](https://www.creative-tim.com/bootstrap-themes/vuejs-themes?ref=adsa-github-readme) from Creative Tim
-- [More products](https://www.creative-tim.com/bootstrap-themes?ref=adsa-github-readme) from Creative Tim
-- Check our Bundles [here](https://www.creative-tim.com/bundles?ref=adsa-github-readme)
-
-### Social Media
-
-Twitter: <https://twitter.com/CreativeTim?ref=creativetim>
-
-Facebook: <https://www.facebook.com/CreativeTim?ref=creativetim>
-
-Dribbble: <https://dribbble.com/creativetim?ref=creativetim>
-
-Instagram: <https://www.instagram.com/CreativeTimOfficial?ref=creativetim>
