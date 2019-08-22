@@ -31,6 +31,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import { ToastrModule } from 'ngx-toastr';
+import { ListassignmentsComponent } from './listassignments/listassignments.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { ToastrModule } from 'ngx-toastr';
     HardwareComponent,
     SoftwareComponent,
     AssignmentComponent,
-    ListusersComponent
+    ListusersComponent,
+    ListassignmentsComponent
   ],
   imports: [
     BrowserModule,

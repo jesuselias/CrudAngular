@@ -15,51 +15,57 @@
       <div class="row">
         <div class="col-12">
           <div class="jumbtron">
-<h1 class="display-3  text-white">Asignar</h1>
+<h1 class="display-3  text-white">Asignar Hardware y software a usuario</h1>
 <hr>
 <div class="row">
 <div class="col-md-5">
-<form >
+    <div class="transform-perspective-left">
+        <div class="card bg-secondary shadow border-0">
+          <div class="card-body px-lg-5 py-lg-5">
+            <div class="text-muted text-center mb-3">
+                <img  src="./assets/img/brand/users.png" width="80px" height="80px">
+            </div>
+  <form #form="ngForm" autocomplete="off" (submit)="insertRecord(form)">
 <input type="hidden" name="Id" >
 <div class="form-group">
-<label class="text-white">Usuario</label>
+<label >Usuario</label>
 <div class="input-group">
   <div class="input-group-prepend">
     <div class="input-group-text bg-white">
       <i class="fas fa-user-circle"></i>
     </div>
   </div>
-  <select name="UserName" #UserName="ngModel" [(ngModel)]="service.formData.UserName" class="form-control">
+  <select  name="UserID" #UserID="ngModel" [(ngModel)]="assigservice.formData.UserID" (ngModelChange)="getiduser(form)"  class="form-control">
     <option value="0">-Select-</option>
-    <option *ngFor="let u of service.list" >{{u.userName}}</option>
+    <option *ngFor="let u of service.list" value="{{u.id}}">{{u.userName}}</option>
   </select>
 </div>
 </div>
 <div class="form-group">
-<label class="text-white">Hardeware</label>
+<label >Hardeware</label>
 <div class="input-group">
   <div class="input-group-prepend">
     <div class="input-group-text bg-white">
       <i class="far fa-credit-card"></i>
     </div>
   </div>
-  <select class="form-control">
+  <select name="HardwareID" #HardwareID="ngModel" [(ngModel)]="assigservice.formData.HardwareID" class="form-control">
     <option  value="0">-Select-</option>
-    <option *ngFor="let h of hardservice.list" >{{h.hardwareName}}</option>
+    <option *ngFor="let h of hardservice.list" value="{{h.id}}" >{{h.hardwareName}}</option>
 </select>
 </div>
 </div>
 <div class="form-group">
-<label class="text-white">Software</label>
+<label >Software</label>
 <div class="input-group">
   <div class="input-group-prepend">
     <div class="input-group-text bg-white">
       <i class="far fa-credit-card"></i>
     </div>
   </div>
-  <select name="CustomerID" class="form-control">
+  <select name="SoftwareID" #SoftwareID="ngModel" [(ngModel)]="assigservice.formData.SoftwareID" class="form-control">
     <option value="0">-Select-</option>
-    <option *ngFor="let s of softservice.list" >{{s.softwareName}}</option>
+    <option *ngFor="let s of softservice.list" value="{{s.id}}" >{{s.softwareName}}</option>
 </select>
 </div>
 </div>
@@ -68,26 +74,32 @@
 </div>
 </form>
 </div>
-<div class="col-md-12">
+</div>
+</div>
+</div>
+<div class="col-md-7">
+    <div class="card bg-secondary shadow border-0">
+        <div class="card-body px-lg-5 py-lg-5">
+            <h3  style="color: blue">Listado Hardware y software</h3>
+            <hr>
   <table class="table table table-striped table-dark table-hover table-bordered">
     <thead>
       <tr>
         <th scope="col">#</th>
-        <th scope="col">Usuario</th>
         <th scope="col">Hardware</th>
         <th scope="col">Software</th>
       </tr>
     </thead>
-    <tr *ngFor="let pd of service.list">
-      <th class="text-white" scope="row">{{pd.id}}</th>
-      <td (click)="populateForm(pd)" class="text-white"></td>
-      <td (click)="populateForm(pd)" class="text-white"></td>
-      <td (click)="populateForm(pd)" class="text-white"></td>
-      <td (click)="populateForm(pd)" class="text-white"></td>
-      <td (click)="populateForm(pd)" class="text-white"></td>
-      <td><button class="btn btn-icon btn-2 btn-danger" (click)="onDelete(pd.id)" type="submit"><span class="btn-inner--icon"><i class="ni ni-bag-17"></i></span></button></td>
+   <tr *ngFor="let p of assigservice.list | paginate: {itemsPerPage: 4, currentPage: pageActual}; index as i" >
+      <th class="text-white" scope="row">{{i+1}}</th>
+      <td class="text-white">{{p.hardwareName}}</td>
+      <td class="text-white">{{p.softwareName}}</td>
+      <td><button class="btn btn-sm btn-2 btn-danger" value="{{p.hardwareID}}" value="{{p.softwareID}}" (click)="onDelete(form,i)" type="submit"><i class="ni ni-fat-remove"></i></button></td>
     </tr>
   </table>
+  <pagination-controls (pageChange)="pageActual = $event"></pagination-controls>
+</div>
+</div>
 </div>
 </div>
 </div>

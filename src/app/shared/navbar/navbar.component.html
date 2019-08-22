@@ -1,7 +1,7 @@
 <nav id="navbar-main" class="navbar navbar-main navbar-expand-lg navbar-transparent navbar-light headroom headroom--top headroom--pinned">
   <div class="container">
     <a class="navbar-brand mr-lg-5" [routerLink]="['/users']">
-      <img src="./assets/img/brand/argon-white.png">
+      <img src="./assets/img/brand/users.png">
     </a>
     <button class="navbar-toggler" type="button" (click)="isCollapsed = !isCollapsed"
           [attr.aria-expanded]="!isCollapsed" aria-controls="navbar_global">
@@ -12,7 +12,7 @@
         <div class="row">
           <div class="col-6 collapse-brand">
             <a [routerLink]="['/users']">
-              <img src="./assets/img/brand/blue.png">
+              <img src="./assets/img/brand/users.png">
             </a>
           </div>
           <div class="col-6 collapse-close">
@@ -68,9 +68,9 @@
             <span class="nav-link-inner--text">Registros</span>
           </a>
           <div class="dropdown-menu">
-            <a [routerLink]="['/users']" class="dropdown-item">Regitrar usuario</a>
-            <a [routerLink]="['/hardware']" class="dropdown-item">Regitrar hardware</a>
-            <a [routerLink]="['/software']" class="dropdown-item">Regitrar software</a>
+            <a [routerLink]="['/users']" class="dropdown-item">Usuario</a>
+            <a [routerLink]="['/hardware']" class="dropdown-item">Hardware</a>
+            <a [routerLink]="['/software']" class="dropdown-item">Software</a>
             <a [routerLink]="['/assignment']" class="dropdown-item">Asignacion</a>
             <!--<a [routerLink]="['/landing']" class="dropdown-item">Landing</a>
             <a [routerLink]="['/user-profile']" class="dropdown-item">Profile</a>
@@ -85,7 +85,7 @@
             </a>
             <div class="dropdown-menu">
               <a [routerLink]="['/listusers']" class="dropdown-item">Listado de usuario</a>
-              <a [routerLink]="['/hardware']" class="dropdown-item">Listado asignado</a>
+              <a [routerLink]="['/listassignments']" class="dropdown-item">Listado asignado</a>
           <!--<a [routerLink]="['/software']" class="dropdown-item">Regitrar software</a>
               <a [routerLink]="['/assignment']" class="dropdown-item">Asignacion</a>
               <a [routerLink]="['/landing']" class="dropdown-item">Landing</a>
@@ -118,14 +118,6 @@
           <a class="nav-link nav-link-icon" href="https://github.com/creativetimofficial/argon-design-system-angular?ref=adsa-navbar" target="_blank" data-toggle="tooltip" title="Star us on Github">
             <i class="fa fa-github"></i>
             <span class="nav-link-inner--text d-lg-none">Github</span>
-          </a>
-        </li>
-        <li class="nav-item d-none d-lg-block ml-lg-4">
-          <a href="https://www.creative-tim.com/product/argon-design-system-angular?ref=adsa-navbar" target="_blank" class="btn btn-neutral btn-icon">
-            <span class="btn-inner--icon">
-              <i class="fa fa-cloud-download mr-2"></i>
-            </span>
-            <span class="nav-link-inner--text">Download</span>
           </a>
         </li>
       </ul>

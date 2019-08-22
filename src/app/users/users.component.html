@@ -31,7 +31,7 @@
                                   <div class="input-group">
                                     <div class="input-group-prepend">
                                       <div class="input-group-text bg-white">
-                                        <i class="fas fa-user-circle"></i>
+                                        <i class="ni ni-circle-08"></i>
                                       </div>
                                     </div>
                                     <input (focus)="focus=true" (blur)="focus=false" name="userName" #userName="ngModel" [(ngModel)]="service.formData.userName"  class="form-control" placeholder="Nombre del usuario" required>
@@ -41,7 +41,7 @@
                                   <div class="input-group">
                                     <div class="input-group-prepend">
                                       <div class="input-group-text bg-white">
-                                        <i class="far fa-credit-card"></i>
+                                        <i class="ni ni-circle-08"></i>
                                       </div>
                                     </div>
                                     <input name="name" #name="ngModel" [(ngModel)]="service.formData.name"class="form-control" placeholder="Nombre">
@@ -51,7 +51,7 @@
                                   <div class="input-group">
                                     <div class="input-group-prepend">
                                       <div class="input-group-text bg-white">
-                                        <i class="far fa-credit-card"></i>
+                                        <i class="ni ni-circle-08"></i>
                                       </div>
                                     </div>
                                     <input name="lastName" #lastName="ngModel" [(ngModel)]="service.formData.lastName" class="form-control" placeholder="Segundo Nombre">
@@ -88,8 +88,15 @@
                       </div>
          
     </div>
-    <div style="align-content: center" class="col-md-6">
-    
+    <div style="align-content: center" class="col-md-7">
+      <h3 class="display-3 text-white">Sistema de Asignaciones
+        <span class="text-white">de hardware y software a los usuarios</span>
+      </h3>
+      <p class="lead text-white">Este sistema permitira tanto registrar, modificar y eliminar los diversos usuarios, hardware y software; permitiendo asignar los hardware y software que estan registrados a los usuarios así poder observar los listados de usuarios y listado de hardware y software por usuario.</p>
+      <div class="btn-wrapper">
+        <a [routerLink]="['/listusers']" class="btn btn-success">Listado de usuarios</a>
+        <a [routerLink]="['/listassignments']" class="btn btn-white">Listado de Asignaciones</a>
+      </div>
   </div>
    
   </div>

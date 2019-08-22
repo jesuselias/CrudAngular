@@ -50,7 +50,7 @@ export class HardwareComponent implements OnInit {
  
 
   onDelete(id){
-    if(confirm('Esta seguro que quieres eliminar')){
+    if(confirm('Esta seguro que quieres eliminar?')){
     this.service.Deletehardware(id)
     .subscribe(res =>{
       this.service.refreshList();

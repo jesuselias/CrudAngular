@@ -13,19 +13,21 @@ import { HardwareComponent } from './hardware/hardware.component';
 import { SoftwareComponent } from './software/software.component';
 import { AssignmentComponent } from './assignment/assignment.component';
 import { ListusersComponent } from './listusers/listusers.component';
+import { ListassignmentsComponent } from './listassignments/listassignments.component';
 
 const routes: Routes =[
-    { path: 'home',             component: HomeComponent },
+    /*{ path: 'home',             component: HomeComponent },
     { path: 'user-profile',     component: ProfileComponent },
     { path: 'register',           component: SignupComponent },
     { path: 'landing',          component: LandingComponent },
-    { path: 'login',          component: LoginComponent },
+    { path: 'login',          component: LoginComponent },*/
     { path: 'users',          component: UsersComponent },
     { path: 'hardware',          component: HardwareComponent },
     { path: 'software',          component: SoftwareComponent },
     { path: 'assignment',          component: AssignmentComponent },
     { path: 'listusers',          component: ListusersComponent },
-    { path: '', redirectTo: 'home', pathMatch: 'full' }
+    { path: 'listassignments',          component: ListassignmentsComponent },
+    { path: '', redirectTo: 'users', pathMatch: 'full' }
 ];
 
 @NgModule({

@@ -24,8 +24,7 @@
             ],
             "styles": [
               "src/styles.css",
-              "src/assets/scss/argon.scss",
-              "node_module/ngx-toastr.css"
+              "src/assets/scss/argon.scss"
             ],
             "scripts": []
           },

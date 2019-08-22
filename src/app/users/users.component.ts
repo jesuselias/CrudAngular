@@ -26,7 +26,7 @@ export class UsersComponent implements OnInit {
       name:'',
       lastName:'',
       age:0,
-      lastSessionDateTime: ''
+      lastSessionDateTime: '2019-08-05T15:02:29.393'
 
     }
   }
@@ -65,7 +65,7 @@ export class UsersComponent implements OnInit {
 
 
   onDelete(id){
-    if(confirm('Esta seguro que quieres eliminar')){
+    if(confirm('Esta seguro que quieres eliminar?')){
     this.service.Deleteusers(id)
     .subscribe(res =>{
       this.service.refreshList();
