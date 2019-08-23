@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UsersService } from './../shared/services/users.service';
 import { NgForm} from '@angular/forms'
 import { Users } from '../shared/services/users.model';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-users',
@@ -10,7 +11,8 @@ import { Users } from '../shared/services/users.model';
 })
 export class UsersComponent implements OnInit {
 
-  constructor( private service: UsersService ) { }
+  constructor( private service: UsersService,
+    private toastr:ToastrService ) { }
 
   ngOnInit() {
     this.resetForm();
@@ -35,14 +37,15 @@ export class UsersComponent implements OnInit {
 
   onSubmit(form: NgForm) {
     if (form.value.id == 0)
+    this.toastr.success('Registrado Exitosamente', 'Usuario. Registrado'),
     this.insertRecord(form);
     else
+    this.toastr.success('Modificado Exitosamente', 'Usuario. Modificado'),
       this.updateRecord(form);
   }
 
   insertRecord(form: NgForm) {
     this.service.postusers(form.value).subscribe(res => {
-      //this.toastr.success('Inserted successfully', 'EMP. Register');
       this.resetForm(form);
       this.service.refreshList();
     });
@@ -66,6 +69,7 @@ export class UsersComponent implements OnInit {
 
   onDelete(id){
     if(confirm('Esta seguro que quieres eliminar?')){
+      this.toastr.error('Elminado Exitosamente', 'Usuario. Eliminado?');
     this.service.Deleteusers(id)
     .subscribe(res =>{
       this.service.refreshList();

@@ -5,6 +5,7 @@ import { SoftwareService } from './../shared/services/software.service';
 import { AssignmentsService } from './../shared/services/assignments.service';
 import { Assignments } from '../shared/services/assignments.model';
 import { NgForm} from '@angular/forms'
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -17,7 +18,8 @@ export class AssignmentComponent implements OnInit {
   constructor(private service: UsersService,
               private hardservice: HardwareService,
               private softservice: SoftwareService,
-              private assigservice: AssignmentsService ) 
+              private assigservice: AssignmentsService,
+              private toastr: ToastrService ) 
               {
                }
 
@@ -45,7 +47,7 @@ export class AssignmentComponent implements OnInit {
 
   insertRecord(form: NgForm) {
     this.assigservice.Postassignments(form.value).subscribe(res => {
-      //this.toastr.success('Inserted successfully', 'EMP. Register');
+      this.toastr.success('Asignacion Exitosa', 'Asignacion. Registrada'),
       this.resetForm(form);
       //this.assigservice.refreshList(id);
     });
@@ -59,7 +61,7 @@ export class AssignmentComponent implements OnInit {
   onDelete(form: NgForm){
     if(confirm('Esta seguro que quieres eliminar?')){
       this.assigservice.Deleteassignments(form.value).subscribe(res => {
-        //this.toastr.success('Inserted successfully', 'EMP. Register');
+        this.toastr.error('Elminado Exitosamente', 'Asiganacion. Eliminada');
         this.resetForm(form);
         //this.assigservice.refreshList(id);
       console.log();

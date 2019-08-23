@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SoftwareService } from './../shared/services/software.service';
 import { NgForm} from '@angular/forms'
 import { Software } from '../shared/services/software.model';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-software',
@@ -12,7 +13,8 @@ export class SoftwareComponent implements OnInit {
   
   isValid: boolean = true;
 
-  constructor( private service: SoftwareService) { }
+  constructor( private service: SoftwareService,
+    private toastr:ToastrService) { }
 
   pageActual: number = 1;
   ngOnInit() {
@@ -43,8 +45,10 @@ export class SoftwareComponent implements OnInit {
 
   onSubmit(form: NgForm) {
     if (form.value.id == 0)
+    this.toastr.success('Registrado Exitosamente', 'Software. Registrado'),
     this.insertRecord(form);
     else
+    this.toastr.success('Modificado Exitosamente', 'Software. Modificado'),
       this.updateRecord(form);
   }
   
@@ -72,6 +76,7 @@ export class SoftwareComponent implements OnInit {
 
   onDelete(id){
     if(confirm('Esta seguro que quieres eliminar')){
+    this.toastr.error('Elminado Exitosamente', 'Software. Eliminado?');
     this.service.Deletesoftware(id)
     .subscribe(res =>{
       this.service.refreshList();

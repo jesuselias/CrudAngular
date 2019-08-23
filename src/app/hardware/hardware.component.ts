@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HardwareService } from './../shared/services/hardware.service';
 import { NgForm} from '@angular/forms'
 import { Hardware } from '../shared/services/hardware.model';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-hardware',
@@ -10,7 +11,8 @@ import { Hardware } from '../shared/services/hardware.model';
 })
 export class HardwareComponent implements OnInit {
   Hardware: any;
-  constructor( private service: HardwareService) {
+  constructor( private service: HardwareService,
+    private toastr: ToastrService) {
     this.Hardware =[];
    }
 
@@ -29,14 +31,16 @@ export class HardwareComponent implements OnInit {
 
   onSubmit(form: NgForm) {
     if (form.value.id == 0)
+    this.toastr.success('Registrado Exitosamente', 'Hardware. Registrado'),
     this.insertRecord(form);
     else
+    this.toastr.success('Modificado Exitosamente', 'Hardware. Modificado'),
       this.updateRecord(form);
   }
 
   insertRecord(form: NgForm) {
     this.service.Posthardware(form.value).subscribe(res => {
-      //this.toastr.success('Inserted successfully', 'EMP. Register');
+      //this.toastr.success('Inserted successfully', 'Hardware. Register');
       this.resetForm(form);
       this.service.refreshList();
     });
@@ -51,6 +55,7 @@ export class HardwareComponent implements OnInit {
 
   onDelete(id){
     if(confirm('Esta seguro que quieres eliminar?')){
+    this.toastr.error('Elminado Exitosamente', 'Hardware. Eliminado');
     this.service.Deletehardware(id)
     .subscribe(res =>{
       this.service.refreshList();
