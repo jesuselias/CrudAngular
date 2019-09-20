@@ -15,11 +15,12 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class AssignmentComponent implements OnInit {
 
-  constructor(private service: UsersService,
-              private hardservice: HardwareService,
-              private softservice: SoftwareService,
-              private assigservice: AssignmentsService,
-              private toastr: ToastrService ) 
+  pageActual: number = 1;
+  constructor(public service: UsersService,
+              public hardservice: HardwareService,
+              public softservice: SoftwareService,
+              public assigservice: AssignmentsService,
+              public toastr: ToastrService ) 
               {
                }
 

@@ -12,10 +12,13 @@ import { NgForm} from '@angular/forms'
   styleUrls: ['./listassignments.component.css']
 })
 export class ListassignmentsComponent implements OnInit {
-  constructor(private service: UsersService,
-    private hardservice: HardwareService,
-    private softservice: SoftwareService,
-    private assigservice: AssignmentsService ) 
+  
+  pageActual: number = 1;
+  
+  constructor(public service: UsersService,
+    public hardservice: HardwareService,
+    public softservice: SoftwareService,
+    public assigservice: AssignmentsService ) 
     {
      }
 

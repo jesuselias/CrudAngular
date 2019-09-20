@@ -11,7 +11,7 @@ export class UsersService {
   readonly rootURL = 'https://jelias.azurewebsites.net/api';
   list : Users[];
 
-  constructor(private http:HttpClient) { }
+  constructor(public http:HttpClient) { }
 
   postusers(formData:Users){
    return this.http.post(this.rootURL+'/users', this.formData);

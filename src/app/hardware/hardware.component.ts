@@ -11,8 +11,10 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class HardwareComponent implements OnInit {
   Hardware: any;
-  constructor( private service: HardwareService,
-    private toastr: ToastrService) {
+  pageActual: number = 1;
+  
+  constructor( public service: HardwareService,
+    public toastr: ToastrService) {
     this.Hardware =[];
    }
 

@@ -9,8 +9,9 @@ import { Users } from '../shared/services/users.model';
   styleUrls: ['./listusers.component.css']
 })
 export class ListusersComponent implements OnInit {
-
-  constructor( private service: UsersService) { }
+  
+  pageActual: number = 1;
+  constructor( public service: UsersService) { }
 
   ngOnInit() {
     this.resetForm();

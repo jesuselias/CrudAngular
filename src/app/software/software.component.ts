@@ -13,10 +13,9 @@ export class SoftwareComponent implements OnInit {
   
   isValid: boolean = true;
 
-  constructor( private service: SoftwareService,
-    private toastr:ToastrService) { }
-
-  pageActual: number = 1;
+  constructor( public service: SoftwareService,
+    public toastr:ToastrService) { }
+    pageActual: number = 1;
   ngOnInit() {
     this.resetForm();
     this.service.refreshList();

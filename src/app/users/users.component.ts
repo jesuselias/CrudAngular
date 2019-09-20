@@ -10,9 +10,10 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./users.component.css']
 })
 export class UsersComponent implements OnInit {
-
-  constructor( private service: UsersService,
-    private toastr:ToastrService ) { }
+    
+    pageActual: number = 1;
+    constructor( public service: UsersService,
+    public toastr:ToastrService ) { }
 
   ngOnInit() {
     this.resetForm();
