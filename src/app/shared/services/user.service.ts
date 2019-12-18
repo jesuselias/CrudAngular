@@ -1,28 +1,28 @@
 import { Injectable } from '@angular/core';
-import { Users } from './users.model';
+import { User } from './user.model';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
-export class UsersService {
+export class UserService {
 
-  formData:Users;
+  formData:User;
   readonly rootURL = 'http://www.mocky.io/v2/5df113c33100000f008f0dcc';
-  list : Users[];
+  list : User[];
 
   constructor(public http:HttpClient) { }
 
-  postusers(formData:Users){
+  postuser(formData:User){
    return this.http.post(this.rootURL+'/users', this.formData);
   }
 
-  putusers(formData : Users){
+  putuser(formData : User){
     return this.http.put(this.rootURL+'/users/'+ formData.id,formData);
      
    }
  
-   Deleteusers(id){
+   Deleteuser(id){
      return this.http.delete(this.rootURL+'/users/'+ id);
     }
  
@@ -30,6 +30,6 @@ export class UsersService {
    refreshList(){
      this.http.get(this.rootURL + '/users' )
      .toPromise()
-     .then(res => this.list = res as Users[]);
+     .then(res => this.list = res as User[]);
    }
 }

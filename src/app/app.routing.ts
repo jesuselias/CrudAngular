@@ -21,12 +21,8 @@ const routes: Routes =[
     { path: 'register',           component: SignupComponent },
     { path: 'landing',          component: LandingComponent },
     { path: 'login',          component: LoginComponent },*/
+     { path: '',          component: LoginComponent },
     { path: 'users',          component: UsersComponent },
-    { path: 'hardware',          component: HardwareComponent },
-    { path: 'software',          component: SoftwareComponent },
-    { path: 'assignment',          component: AssignmentComponent },
-    { path: 'listusers',          component: ListusersComponent },
-    { path: 'listassignments',          component: ListassignmentsComponent },
     { path: '', redirectTo: 'users', pathMatch: 'full' }
 ];
 
