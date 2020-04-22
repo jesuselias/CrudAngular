@@ -10,10 +10,10 @@ https://localhost:44393/api/users
 
 {
 "id": 1,
-"userName": "Jonatha25",
-"name": "Jonathan",
-"lastName": "falcon",
-"age": 24,
+"userName": "Jesus25",
+"name": "Jesus",
+"lastName": "Elias",
+"age": 27,
 "lastSessionDateTime": "2019-08-05T15:02:29.393"
 },
 
